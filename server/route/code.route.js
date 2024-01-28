@@ -31,9 +31,9 @@ router.post('/api/codes/use', async (req, res) => {
       return res.json({ error: 'This code has already been used' });
     }
 
-    if (isCodeExpired(existingCode.createdAt)) {
-      return res.json({ error: 'The code has expired' });
-    }
+    // if (isCodeExpired(existingCode.createdAt)) {
+    //   return res.json({ error: 'The code has expired' });
+    // }
 
     // Mark the code as used
     existingCode.used = true;
@@ -73,12 +73,12 @@ function generateCode() {
 
 // Helper function to check if a code is expired
 // createdAt: 2024-01-28T05:44:06.702Z
-function isCodeExpired(createdAt) {
-  console.log(createdAt);
-  const now = new Date();
-  const diffInSeconds = (now - createdAt) / 1000;
-  console.log(diffInSeconds)
-  return diffInSeconds > 60;
-}
+// function isCodeExpired(createdAt) {
+//   console.log(createdAt);
+//   const now = new Date();
+//   const diffInSeconds = (now - createdAt) / 1000;
+//   console.log(diffInSeconds)
+//   return diffInSeconds > 60;
+// }
 
 module.exports = router;
