@@ -46,6 +46,21 @@ router.post('/api/codes/use', async (req, res) => {
   }
 });
 
+router.get("/", (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>URL Check</title>
+      </head>
+      <body>
+        <h1>URL is working fine!</h1>
+      </body>
+    </html>
+  `);
+});
 // Helper function to generate a random code
 function generateCode() {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
